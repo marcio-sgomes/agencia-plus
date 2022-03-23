@@ -25,8 +25,8 @@ function App() {
         <Route path='/precos' component={Precos} />
         <Route path='/contato' component={Contato} />
         <Route path='/cadastro' component={Cadastro} />
-        <Route path='/visualizar-clientes/:id' component={VisualizarClientes} />
-        <Route path='/lista-clientes/:id' component={ListaCliente} />
+        <Route path='/cadastro/clientes/:id' component={VisualizarClientes} />
+        <Route path='/cadastro/clientes/' component={ListaCliente} />
 
         <Rodape />
       </div>

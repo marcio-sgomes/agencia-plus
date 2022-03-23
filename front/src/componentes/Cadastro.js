@@ -84,11 +84,11 @@ class Cadastro extends Component {
     // step 5
     if (this.state.id === '_add') {
       ClienteService.createCliente(cliente).then(res => {
-        this.props.history.push('/clientes');
+        this.props.history.push('/cadastro');
       });
     } else {
       ClienteService.updateCliente(cliente, this.state.id).then(res => {
-        this.props.history.push('/clientes');
+        this.props.history.push('/cadastro/cliente');
       });
     }
   }

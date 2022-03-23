@@ -22,22 +22,57 @@ class VisualizarClientes extends Component {
       <div className='mt-3'>
 
         <div className="card col-md-6 offset-md-3">
-          <h2 className="text-center my-1">Detalhes do Funcionario </h2>
+          <h2 className="text-center my-1">Detalhes do Cliente </h2>
           <div className="card-body">
             <div className="row mb-2">
-              <label className='fw-bold'>Primeiro nome: </label>
-              <div> {this.state.cliente.firstName}</div>
+              <label className='fw-bold'>Nome: </label>
+              <div> {this.state.cliente.name}</div>
             </div>
             <div className="row mb-2">
-              <label className='fw-bold'> Sobrenome: </label>
-              <div> {this.state.cliente.lastName}</div>
+              <label className='fw-bold'> CPF: </label>
+              <div> {this.state.cliente.cpf}</div>
+            </div>
+            <div className="row">
+              <label className='fw-bold'> Nascimento: </label>
+              <div> {this.state.cliente.nascimento}</div>
+            </div>
+            <div className="row">
+              <label className='fw-bold'> sexo: </label>
+              <div> {this.state.cliente.sexo}</div>
+            </div>
+            <div className="row">
+              <label className='fw-bold'> Telefone: </label>
+              <div> {this.state.cliente.tel1}</div>
+            </div>
+            <div className="row">
+              <label className='fw-bold'> Telefone 2: </label>
+              <div> {this.state.cliente.tel2}</div>
             </div>
             <div className="row">
               <label className='fw-bold'> Email: </label>
-              <div> {this.state.cliente.emailId}</div>
+              <div> {this.state.cliente.email}</div>
+            </div>
+            <div className="row">
+              <label className='fw-bold'> CEP: </label>
+              <div> {this.state.cliente.cep}</div>
+            </div>
+            <div className="row">
+              <label className='fw-bold'> Rua: </label>
+              <div> {this.state.cliente.rua}</div>
+            </div>
+            <div className="row">
+              <label className='fw-bold'> Nº: </label>
+              <div> {this.state.cliente.numero}</div>
+            </div>
+            <div className="row">
+              <label className='fw-bold'> Bairro: </label>
+              <div> {this.state.cliente.bairro}</div>
+            </div>
+            <div className="row">
+              <label className='fw-bold'> Cidade: </label>
+              <div> {this.state.cliente.cidade}</div>
             </div>
           </div>
-
         </div>
       </div>
     )

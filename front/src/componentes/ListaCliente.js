@@ -21,10 +21,10 @@ class ListaCliente extends Component {
     })
   }
   viewCliente(id) {
-    this.props.history.push(`/view-cliente/${id}`)
+    this.props.history.push(`/cadastro/clientes/${id}`)
   }
   editCliente(id) {
-    this.props.history.push(`/add-cliente/${id}`)
+    this.props.history.push(`/cadastro/${id}`)
   }
 
   componentDidMount() {
@@ -34,7 +34,7 @@ class ListaCliente extends Component {
   }
 
   addCliente() {
-    this.props.history.push('/add-cliente/_add')
+    this.props.history.push('/cadastro/_add')
   }
 
   render() {

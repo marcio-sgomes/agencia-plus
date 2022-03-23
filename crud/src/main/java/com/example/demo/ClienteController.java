@@ -24,32 +24,32 @@ public class ClienteController {
 	@Autowired
 	private ClienteRepository clienteRepository;
 
-// get all employees
+// pegar todos os clientes
 	@GetMapping("/clientes")
 	public List<Cliente> getAllClientes() {
 		return clienteRepository.findAll();
 	}
 
-// create employee rest api
+// crear clientes a api
 	@PostMapping("/clientes")
 	public Cliente createCliente(@RequestBody Cliente cliente) {
 		return clienteRepository.save(cliente);
 	}
 
-// get employee by id rest api
+// pegar clientes pelo Id
 	@GetMapping("/clientes/{id}")
 	public ResponseEntity<Cliente> getClienteById(@PathVariable Long id) {
 		Cliente cliente = clienteRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+				.orElseThrow(() -> new ResourceNotFoundException("Cliente não existe com esse Id :" + id));
 		return ResponseEntity.ok(cliente);
 	}
 
-// update employee rest api
+// atualizar clientes por Id
 
 	@PutMapping("/clientes/{id}")
 	public ResponseEntity<Cliente> updateCliente(@PathVariable Long id, @RequestBody Cliente clienteDetails) {
 		Cliente cliente = clienteRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+				.orElseThrow(() -> new ResourceNotFoundException("Cliente não existe com esse Id :" + id));
 
 		cliente.setNome(clienteDetails.getNome());
 		cliente.setCpf(clienteDetails.getCpf());
@@ -68,15 +68,15 @@ public class ClienteController {
 		return ResponseEntity.ok(updatedCliente);
 	}
 
-// delete employee rest api
+// exluir clientes por Id
 	@DeleteMapping("/clientes/{id}")
 	public ResponseEntity<Map<String, Boolean>> deleteCliente(@PathVariable Long id) {
 		Cliente cliente = clienteRepository.findById(id)
-				.orElseThrow(() -> new ResourceNotFoundException("Employee not exist with id :" + id));
+				.orElseThrow(() -> new ResourceNotFoundException("Cliente não existe com esse Id :" + id));
 
 		clienteRepository.delete(cliente);
 		Map<String, Boolean> response = new HashMap<>();
-		response.put("deleted", Boolean.TRUE);
+		response.put("excluido", Boolean.TRUE);
 		return ResponseEntity.ok(response);
 	}
 }

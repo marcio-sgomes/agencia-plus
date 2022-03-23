@@ -9,7 +9,7 @@ class Cadastro extends Component {
     this.state = {
       // step 2
       id: this.props.match.params.id,
-      nome:'',
+      nome: '',
       cpf: '',
       nascimento: '',
       sexo: '',
@@ -18,9 +18,9 @@ class Cadastro extends Component {
       email: '',
       cep: '',
       rua: '',
-	  numero: '',
-	  bairro: '',
-	  cidade: ''
+      numero: '',
+      bairro: '',
+      cidade: ''
     }
     this.mudarNome = this.mudarNome.bind(this);
     this.mudarCpf = this.mudarCpf.bind(this);
@@ -48,24 +48,25 @@ class Cadastro extends Component {
         let cliente = res.data;
         this.setState({
           nome: cliente.nome,
-      cpf: cliente.cpf,
-      nascimento: cliente.nascimento,
-      sexo: cliente.sexo,
-      tel1: cliente.tel1,
-      tel2: cliente.tel2,
-      email: cliente.email,
-      cep: cliente.cep,
-      rua: cliente.rua,
-	  numero: cliente.numero,
-	  bairro: cliente.bairro,
-	  cidade: cliente.cidade
+          cpf: cliente.cpf,
+          nascimento: cliente.nascimento,
+          sexo: cliente.sexo,
+          tel1: cliente.tel1,
+          tel2: cliente.tel2,
+          email: cliente.email,
+          cep: cliente.cep,
+          rua: cliente.rua,
+          numero: cliente.numero,
+          bairro: cliente.bairro,
+          cidade: cliente.cidade
         });
       });
     }
   }
   saveOrUpdateCliente = (e) => {
     e.preventDefault();
-    let cliente = {  nome: this.state.nome,
+    let cliente = {
+      nome: this.state.nome,
       cpf: this.state.cpf,
       nascimento: this.state.nascimento,
       sexo: this.state.sexo,
@@ -76,7 +77,8 @@ class Cadastro extends Component {
       rua: this.state.rua,
       numero: this.state.numero,
       bairro: this.state.bairro,
-      cidade: this.state.cidade };
+      cidade: this.state.cidade
+    };
     console.log('cliente => ' + JSON.stringify(cliente));
 
     // step 5
@@ -154,140 +156,140 @@ class Cadastro extends Component {
   render() {
     return (
       <div>
-        
-              {
-                this.getTitle()
-              }
-              
-              <form className="form-horizontal">
-                    <fieldset>
-                        <div className="panel panel-primary">
-                            <div className="panel-heading">Cadastro de Cliente</div>
-                            <div className="panel-body">
-                                <div className="form-group">                             
-                                    <div className="col-md-11 control-label">
-                                        <p className="help-block"><h11>*</h11> Campo Obrigatório </p>
-                                    </div>
-                                </div>
-                                {/* Text input*/}
-                                <div className="form-group">
-                                    <label className="col-md-2 control-label" for="Nome">Nome <h11>*</h11></label>
-                                    <div className="col-md-8">
-                                        <input id="Nome" name="nome" placeholder="" className="form-control input-md" required="" type="text"
-                                        value={this.state.nome} onChange={this.mudarNome} />
-                                    </div>
-                                </div>
-                                {/* Text input*/}
-                                <div className="form-group">
-                                    <label className="col-md-2 control-label" for="Nome">CPF <h11>*</h11></label>
-                                    <div className="col-md-2">
-                                        <input id="cpf" name="cpf" placeholder="Apenas números" className="form-control input-md" required="" type={'text'} maxlength="11" pattern="[0-9]+$"
-                                        value={this.state.cpf} onChange={this.mudarCpf} />
-                                   </div>
-                                    <label className="col-md-1 control-label" for="Nome">Nascimento<h11>*</h11></label>
-                                    <div className="col-md-2">
-                                        <input id="dtnasc" name="nascimento" placeholder="DD/MM/AAAA" className="form-control input-md" required="" type="date" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()"
-                                        value={this.state.nascimento} onChange={this.mudarNascimento} />
-                                    </div>
-				<div className="form-group">
-                                    <label className="col-md-2 control-label" for="prependedtext">Telefone <h11>*</h11></label>
-                                    <div className="col-md-2">
-                                        <div className="input-group">
-                                            <span className="input-group-addon"><i className="glyphicon glyphicon-earphone"></i></span>
-                                            <input id="prependedtext" name="tel1" type="tel" className="form-control" placeholder="XX XXXXX-XXXX" required="" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
-                                                OnKeyPress="formatar('## #####-####', this)"
-                                                value={this.state.tel1} onChange={this.mudarTel1} />
-                                        </div>
-                                   </div>
-				<label className="col-md-1 control-label" for="prependedtext">Telefone</label>
-                                    <div className="col-md-2">
-                                        <div className="input-group">
-                                            <span className="input-group-addon"><i className="glyphicon glyphicon-earphone"></i></span>
-                                            <input id="prependedtext" name="tel2" className="form-control" placeholder="XX XXXXX-XXXX" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
-                                                OnKeyPress="formatar('## #####-####', this)"
-                                                value={this.state.tel2} onChange={this.mudarTel2} />
-                                        </div>
-                                    </div>
-                                </div>
-				<div className="form-group">
-                                    <label className="col-md-2 control-label" for="prependedtext">Email <h11>*</h11></label>
-                                    <div className="col-md-5">
-                                        <div className="input-group">
-                                            <span className="input-group-addon"><i className="glyphicon glyphicon-envelope"></i></span>
-                                            <input id="prependedtext" name="email" className="form-control" placeholder="email@email.com" required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
-                                            value={this.state.email} onChange={this.mudarEmail} />
-                                        </div>
-                                    </div>
-                                </div>
-				<div className="form-group">
 
-                    
-                                    <label className="col-md-2 control-label" for="CEP">CEP <h11>*</h11></label>
-                                    <div className="col-md-2">
-                                        <input id="cep" name="cep" placeholder="Apenas números" className="form-control input-md" required="" type="search" maxlength="8" pattern="[0-9]+$"
-                                        value={this.state.cep} onChange={this.mudarCep} />
-                                    </div>
-                                
-                                </div>
-				<div className="form-group">
-                                    <label className="col-md-2 control-label" for="prependedtext">Endereço</label>
-                                    <div className="col-md-4">
-                                        <div className="input-group">
-                                            <span className="input-group-addon">Rua</span>
-                                            <input id="rua" name="rua" className="form-control" placeholder="" required=""  type="text"
-                                            value={this.state.rua} onChange={this.mudarRua} />
-                                        </div>
+        {
+          this.getTitle()
+        }
 
-                                    </div>
-				<div className="col-md-2">
-                                        <div className="input-group">
-                                            <span className="input-group-addon">Nº <h11>*</h11></span>
-                                            <input id="numero" name="numero" className="form-control" placeholder="01" required="" type="text"
-                                            value={this.state.numero} onChange={this.mudarNumero} />
-                                        </div>
-
-                                    </div>
-
-                                    <div className="col-md-3">
-                                        <div className="input-group">
-                                            <span className="input-group-addon">Bairro</span>
-                                            <input id="bairro" name="bairro" className="form-control" placeholder="" required=""  type="text"
-                                            value={this.state.bairro} onChange={this.mudarBairro} />
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div className="form-group">
-                                    <label className="col-md-2 control-label" for="prependedtext"></label>
-                                    <div className="col-md-4">
-                                        <div className="input-group">
-                                            <span className="input-group-addon">Cidade</span>
-                                            <input id="cidade" name="cidade" className="form-control" placeholder="" required=""  type="text"
-                                            value={this.state.cidade} onChange={this.mudarCidade} />
-                                        </div>
-
-                                    </div>
-
-                                    
-                                </div>
-				<div className="form-group">
-                                    <label className="col-md-2 control-label" for="Cadastrar"></label>
-                                    <div className="col-md-8">
-                                        <button className="btn btn-success" onClick={this.saveOrUpdateCliente}>Salvar</button>
-                                      
-                                        <button className="btn btn-danger"  onClick={this.cancel.bind(this)}>Cancelar</button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
+        <form className="form-horizontal">
+          <fieldset>
+            <div className="panel panel-primary">
+              <div className="panel-heading">Cadastro de Cliente</div>
+              <div className="panel-body">
+                <div className="form-group">
+                  <div className="col-md-11 control-label">
+                    <p className="help-block"><h11>*</h11> Campo Obrigatório </p>
+                  </div>
+                </div>
+                {/* Text input*/}
+                <div className="form-group">
+                  <label className="col-md-2 control-label" for="Nome">Nome <h11>*</h11></label>
+                  <div className="col-md-8">
+                    <input id="Nome" name="nome" placeholder="" className="form-control input-md" required="" type="text"
+                      value={this.state.nome} onChange={this.mudarNome} />
+                  </div>
+                </div>
+                {/* Text input*/}
+                <div className="form-group">
+                  <label className="col-md-2 control-label" for="Nome">CPF <h11>*</h11></label>
+                  <div className="col-md-2">
+                    <input id="cpf" name="cpf" placeholder="Apenas números" className="form-control input-md" required="" type={'text'} maxlength="11" pattern="[0-9]+$"
+                      value={this.state.cpf} onChange={this.mudarCpf} />
+                  </div>
+                  <label className="col-md-1 control-label" for="Nome">Nascimento<h11>*</h11></label>
+                  <div className="col-md-2">
+                    <input id="dtnasc" name="nascimento" placeholder="DD/MM/AAAA" className="form-control input-md" required="" type="date" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()"
+                      value={this.state.nascimento} onChange={this.mudarNascimento} />
+                  </div>
+                  <div className="form-group">
+                    <label className="col-md-2 control-label" for="prependedtext">Telefone <h11>*</h11></label>
+                    <div className="col-md-2">
+                      <div className="input-group">
+                        <span className="input-group-addon"><i className="glyphicon glyphicon-earphone"></i></span>
+                        <input id="prependedtext" name="tel1" type="tel" className="form-control" placeholder="XX XXXXX-XXXX" required="" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
+                          OnKeyPress="formatar('## #####-####', this)"
+                          value={this.state.tel1} onChange={this.mudarTel1} />
                       </div>
-                    </fieldset>         
-              </form>   
+                    </div>
+                    <label className="col-md-1 control-label" for="prependedtext">Telefone</label>
+                    <div className="col-md-2">
+                      <div className="input-group">
+                        <span className="input-group-addon"><i className="glyphicon glyphicon-earphone"></i></span>
+                        <input id="prependedtext" name="tel2" className="form-control" placeholder="XX XXXXX-XXXX" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
+                          OnKeyPress="formatar('## #####-####', this)"
+                          value={this.state.tel2} onChange={this.mudarTel2} />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="form-group">
+                    <label className="col-md-2 control-label" for="prependedtext">Email <h11>*</h11></label>
+                    <div className="col-md-5">
+                      <div className="input-group">
+                        <span className="input-group-addon"><i className="glyphicon glyphicon-envelope"></i></span>
+                        <input id="prependedtext" name="email" className="form-control" placeholder="email@email.com" required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                          value={this.state.email} onChange={this.mudarEmail} />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="form-group">
+
+
+                    <label className="col-md-2 control-label" for="CEP">CEP <h11>*</h11></label>
+                    <div className="col-md-2">
+                      <input id="cep" name="cep" placeholder="Apenas números" className="form-control input-md" required="" type="search" maxlength="8" pattern="[0-9]+$"
+                        value={this.state.cep} onChange={this.mudarCep} />
+                    </div>
+
+                  </div>
+                  <div className="form-group">
+                    <label className="col-md-2 control-label" for="prependedtext">Endereço</label>
+                    <div className="col-md-4">
+                      <div className="input-group">
+                        <span className="input-group-addon">Rua</span>
+                        <input id="rua" name="rua" className="form-control" placeholder="" required="" type="text"
+                          value={this.state.rua} onChange={this.mudarRua} />
+                      </div>
+
+                    </div>
+                    <div className="col-md-2">
+                      <div className="input-group">
+                        <span className="input-group-addon">Nº <h11>*</h11></span>
+                        <input id="numero" name="numero" className="form-control" placeholder="01" required="" type="text"
+                          value={this.state.numero} onChange={this.mudarNumero} />
+                      </div>
+
+                    </div>
+
+                    <div className="col-md-3">
+                      <div className="input-group">
+                        <span className="input-group-addon">Bairro</span>
+                        <input id="bairro" name="bairro" className="form-control" placeholder="" required="" type="text"
+                          value={this.state.bairro} onChange={this.mudarBairro} />
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div className="form-group">
+                    <label className="col-md-2 control-label" for="prependedtext"></label>
+                    <div className="col-md-4">
+                      <div className="input-group">
+                        <span className="input-group-addon">Cidade</span>
+                        <input id="cidade" name="cidade" className="form-control" placeholder="" required="" type="text"
+                          value={this.state.cidade} onChange={this.mudarCidade} />
+                      </div>
+
+                    </div>
+
+
+                  </div>
+                  <div className="form-group">
+                    <label className="col-md-2 control-label" for="Cadastrar"></label>
+                    <div className="col-md-8">
+                      <button className="btn btn-success" onClick={this.saveOrUpdateCliente}>Salvar</button>
+
+                      <button className="btn btn-danger" onClick={this.cancel.bind(this)}>Cancelar</button>
+                    </div>
+                  </div>
+
+                </div>
               </div>
-         
-    
+            </div>
+          </fieldset>
+        </form>
+      </div>
+
+
     )
   }
 }

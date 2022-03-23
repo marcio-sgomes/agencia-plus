@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ClienteService from '../service/ClienteService'
+import ClienteService from '../Service/ClienteService'
 
 class VisualizarClientes extends Component {
   constructor(props) {

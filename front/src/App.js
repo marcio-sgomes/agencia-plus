@@ -24,7 +24,7 @@ function App() {
         <Route path='/portfolio' component={Portfolio} />
         <Route path='/precos' component={Precos} />
         <Route path='/contato' component={Contato} />
-        <Route path='/cadastro-clientes/:id' component={Cadastro} />
+        <Route path='/cadastro' component={Cadastro} />
         <Route path='/visualizar-clientes/:id' component={VisualizarClientes} />
         <Route path='/lista-clientes/:id' component={ListaCliente} />
 

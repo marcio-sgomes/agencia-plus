@@ -34,7 +34,7 @@ class Cabecalho extends Component {
                                 '></span>PORTFOLIO</Link></li>
                                 <li><Link to='/precos'><span className='glyphicon glyphicon-usd	
                                 '></span>PREÇOS</Link></li>
-                                <li><Link to='/cadastro'><span className='glyphicon glyphicon-floppy-disk	
+                                <li><Link to='/cadastro/_add'><span className='glyphicon glyphicon-floppy-disk	
                                 '></span>CADASTRO</Link></li>
                                 <li><Link to='/contato'><span className='	glyphicon glyphicon-phone-alt
                                 '></span>CONTATO</Link></li>
@@ -46,7 +46,7 @@ class Cabecalho extends Component {
                 <div className='jumbotron text-center'>
                     <img src={require('./img_viagens/logo-removebg-preview.png')} alt='logo' />
                     <p>+plus, sua agência que criar + do que você espera!</p>
-                    <form>
+                   {/*} <form>
                         <div className='input-group'>
                             <input type='buscar' className='form-control' size='50' placeholder='Buscar' required />
                             <div className='input-group-btn'>
@@ -54,7 +54,7 @@ class Cabecalho extends Component {
                             '></span> Buscar</button>
                             </div>
                         </div>
-                    </form>
+                    </form>*/}
                 </div>
             </div>
 

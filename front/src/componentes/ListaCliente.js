@@ -21,14 +21,16 @@ class ListaCliente extends Component {
     })
   }
   viewCliente(id) {
-    this.props.history.push(`/cadastro/clientes/${id}`)
+    this.props.history.push(`/cliente/${id}`)
   }
   editCliente(id) {
     this.props.history.push(`/cadastro/${id}`)
   }
 
   componentDidMount() {
-    ClienteService.getClientes().then(res => {
+    //ClienteService.getClientes().then(res => {
+    ClienteService.getCliente().then(res => {
+      console.log(res.data);
       this.setState({ clientes: res.data })
     })
   }

@@ -21,14 +21,16 @@ class VisualizarClientes extends Component {
     return (
       <div className='mt-3'>
 
-        <div className="card col-md-6 offset-md-3">
-          <h2 className="text-center my-1">Detalhes do Cliente </h2>
-          <div className="card-body">
-            <div className="row mb-2">
-              <label className='fw-bold'>Nome: </label>
+<div id='contact' className='container-fluid bg-grey'>
+                <h2 className='text-center'>Cliente</h2>
+                <div className='row'>
+
+
+              <div className="row"> 
+              <label className='fw-bold'>Nome </label>
               <div> {this.state.cliente.name}</div>
             </div>
-            <div className="row mb-2">
+            <div className="row" >
               <label className='fw-bold'> CPF: </label>
               <div> {this.state.cliente.cpf}</div>
             </div>
@@ -74,7 +76,7 @@ class VisualizarClientes extends Component {
             </div>
           </div>
         </div>
-      </div>
+        </div>
     )
   }
 }

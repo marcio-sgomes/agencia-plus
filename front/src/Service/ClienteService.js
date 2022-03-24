@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const AGENCIA_API_BD_URL = 'http://localhost:8080/api/cliente'
+//const AGENCIA_API_BD_URL = 'http://localhost:8080/api/cliente'
+const AGENCIA_API_BD_URL = 'http://localhost:8080/api/clientes'
 
 class ClienteService {
     getCliente(){

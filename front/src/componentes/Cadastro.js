@@ -84,11 +84,12 @@ class Cadastro extends Component {
     // step 5
     if (this.state.id === '_add') {
       ClienteService.createCliente(cliente).then(res => {
-        this.props.history.push('/cadastro');
+        //this.props.history.push('/cadastro'); '/cadastro/clientes/'
+        this.props.history.push('/clientes/');
       });
     } else {
       ClienteService.updateCliente(cliente, this.state.id).then(res => {
-        this.props.history.push('/cadastro/cliente');
+        this.props.history.push('/cliente');
       });
     }
   }
@@ -179,19 +180,24 @@ class Cadastro extends Component {
                       value={this.state.nome} onChange={this.mudarNome} />
                   </div>
                 </div>
-                {/* Text input*/}
                 <div className="form-group">
-                  <label className="col-md-2 control-label" for="Nome">CPF <h11>*</h11></label>
+                  <label className="col-md-2 control-label" for="Nome">Sexo <h11>*</h11></label>
                   <div className="col-md-2">
-                    <input id="cpf" name="cpf" placeholder="Apenas números" className="form-control input-md" required="" type={'text'} maxlength="11" pattern="[0-9]+$"
-                      value={this.state.cpf} onChange={this.mudarCpf} />
+                    <input id="Sexo" name="sexo" placeholder="" className="form-control input-md" required="" type="text"
+                      value={this.state.sexo} onChange={this.mudarSexo} />
                   </div>
-                  <label className="col-md-1 control-label" for="Nome">Nascimento<h11>*</h11></label>
-                  <div className="col-md-2">
-                    <input id="dtnasc" name="nascimento" placeholder="DD/MM/AAAA" className="form-control input-md" required="" type="date" maxlength="10" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()"
-                      value={this.state.nascimento} onChange={this.mudarNascimento} />
+                </div>
+                <div className="form-group">
+                    <label className="col-md-2 control-label" for="prependedtext">Email <h11>*</h11></label>
+                    <div className="col-md-4">
+                      <div className="input-group">
+                        <span className="input-group-addon"><i className="glyphicon glyphicon-envelope"></i></span>
+                        <input id="prependedtext" name="email" className="form-control" placeholder="email@email.com" required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                          value={this.state.email} onChange={this.mudarEmail} />
+                      </div>
+                    </div>
                   </div>
-                  <div className="form-group">
+                <div className="form-group">
                     <label className="col-md-2 control-label" for="prependedtext">Telefone <h11>*</h11></label>
                     <div className="col-md-2">
                       <div className="input-group">
@@ -211,16 +217,19 @@ class Cadastro extends Component {
                       </div>
                     </div>
                   </div>
-                  <div className="form-group">
-                    <label className="col-md-2 control-label" for="prependedtext">Email <h11>*</h11></label>
-                    <div className="col-md-5">
-                      <div className="input-group">
-                        <span className="input-group-addon"><i className="glyphicon glyphicon-envelope"></i></span>
-                        <input id="prependedtext" name="email" className="form-control" placeholder="email@email.com" required="" type="text" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                          value={this.state.email} onChange={this.mudarEmail} />
-                      </div>
-                    </div>
+                {/* Text input*/}
+                <div className="form-group">
+                  <label className="col-md-2 control-label" for="Nome">CPF <h11>*</h11></label>
+                  <div className="col-md-2">
+                    <input id="cpf" name="cpf" placeholder="Apenas números" className="form-control input-md" required="" type={'text'} maxlength="11" pattern="[0-9]+$"
+                      value={this.state.cpf} onChange={this.mudarCpf} />
                   </div>
+                  <label className="col-md-1 control-label" for="Nome">Nascimento<h11>*</h11></label>
+                  <div className="col-md-2">
+                    <input id="dtnasc" name="nascimento" placeholder="DD/MM/AAAA" className="form-control input-md" required="" type="date" maxlength="8" OnKeyPress="formatar('##/##/####', this)" onBlur="showhide()"
+                      value={this.state.nascimento} onChange={this.mudarNascimento} />
+                  </div>
+                 
                   <div className="form-group">
 
 

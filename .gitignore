@@ -1,0 +1,30 @@
+# Dependências (Node)
+node_modules/
+
+# Build
+build/
+dist/
+coverage/
+target/
+out/
+bin/
+obj/
+*.class
+
+# Variáveis de ambiente
+.env
+.env.*
+!.env.example
+
+# IDEs
+.idea/
+.vscode/
+.settings/
+.classpath
+.project
+*.iml
+
+# Sistema operacional e logs
+.DS_Store
+Thumbs.db
+*.log

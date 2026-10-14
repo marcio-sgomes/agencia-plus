@@ -38,7 +38,7 @@ Pré-requisitos: JDK 17, MySQL 8 e Node.js.
 2. Suba a API (porta 8080), informando as credenciais do banco por variáveis de ambiente:
    ```bash
    cd crud
-   export DB_USERNAME=root DB_PASSWORD=sua_senha
+   cp .env.example .env   # e preencha DB_PASSWORD no .env
    ./mvnw spring-boot:run
    ```
 3. Em outro terminal, suba o front (porta 3000):
